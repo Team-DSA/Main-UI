@@ -96,7 +96,7 @@ export default function AIInterface() {
   const postrequest = async (input) => {
     try {
       console.log('input, request', input);
-      const response = await fetch("/api/transcript", {
+      const response = await fetch("http://localhost:5555/api/transcript", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
