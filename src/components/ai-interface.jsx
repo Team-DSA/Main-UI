@@ -95,7 +95,7 @@ export default function AIInterface() {
 
   const postrequest = async (input) => {
     try {
-      console.log('input, request', input);
+      console.log('input request', JSON.stringify({ prompt: input }));
       const response = await fetch("http://localhost:5555/api/transcript", {
         method: "POST",
         headers: {
@@ -132,13 +132,13 @@ export default function AIInterface() {
   }
 
   return (
-    <div className="flex flex-col w-full max-w-3xl mx-auto h-[600px] bg-gray-100 rounded-lg overflow-hidden">
+    <div className="flex flex-col w-full max-w-3xl mx-auto h-[600px] bg-transparent rounded-lg overflow-hidden relative">
       <div className="flex-grow overflow-auto p-4 space-y-4">
         {messages.map((message, i) => (
           <div key={i} className={`flex ${message.role === "user" ? "justify-end" : "justify-start"}`}>
             <div
               className={`max-w-sm p-4 rounded-lg ${
-                message.role === "user" ? "bg-blue-500 text-white" : "bg-white text-gray-800"
+                message.role === "user" ? " text-white" : "bg-transparent text-white"
               }`}
             >
               {message.content}
@@ -146,7 +146,7 @@ export default function AIInterface() {
           </div>
         ))}
       </div>
-      <div className="p-4 bg-white">
+      <div className="p-4 bg-transparent">
         <AIRing isSpeaking={isSpeaking} />
         <form onSubmit={handleSubmit} className="flex space-x-2">
           <Input
@@ -154,13 +154,13 @@ export default function AIInterface() {
             value={input}
             onChange={handleInputChange}
             placeholder="Type or speak your message..."
-            className="flex-grow"
+            className="flex-grow text-black"
           />
           <Button
             type="button"
             onClick={toggleListening}
             variant="outline"
-            className={isListening ? "bg-red-500 text-white" : ""}
+            className={isListening ? "bg-red-500" : "text-black"}
           >
             {isListening ? <MicOff className="h-4 w-4" /> : <Mic className="h-4 w-4" />}
           </Button>

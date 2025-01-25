@@ -4,6 +4,7 @@ import { Spotlight } from "@/components/ui/spotlight";
 import { ShootingStars } from "@/components/ui/shooting-stars";
 import { StarsBackground } from "@/components/ui/stars-background";
 import { Cover } from "@/components/ui/cover";
+import Link from "next/link";
 
 const BorderedFont = ({ text, borderColor = "white", className = "" }) => {
   return (
@@ -50,9 +51,9 @@ export default function Home() {
           <div className="flex flex-col items-center justify-center">
             <div>
               <p className="text-4xl sm:text-7xl font-bold relative z-20 bg-clip-text text-transparent bg-gradient-to-b from-neutral-200 to-neutral-500 py-8 flex flex-col items-center justify-center">
-                Make it Easy with <br />
+               <span className="pb-2"> Make it Easy with <br /></span>
                 {/* <span className="text-myAccent/80">Bhai Bot</span> */}
-                <BorderedFont text="Bhai Bot" borderColor="#7201d5" />
+                <BorderedFont text="Note-i" borderColor="#7201d5" className=""/>
               </p>
             </div>
             <div className="w-[700px] ">
@@ -60,9 +61,11 @@ export default function Home() {
             </div>
 
             <div className="mt-4">
+              <Link href="/try">
               <Cover className="w-40 flex justify-center items-center text-white hover:cursor-pointer">
                 Try the Bot
               </Cover>
+              </Link>
             </div>
           </div>
         </div>

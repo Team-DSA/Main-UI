@@ -28,6 +28,7 @@ app.post("/api/transcript", async (req, res) => {
   logger("Received request for /api/transcript");
   const genAI = new GoogleGenerativeAI(apiKey);
   const model = genAI.getGenerativeModel({ model: "gemini-1.5-flash" });
+  logger(req.body);
   const { prompt } = req.body;
 
   if (!prompt) {

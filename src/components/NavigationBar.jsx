@@ -4,7 +4,7 @@ import { getSession } from 'next-auth/react';
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { auth } from "@/auth";
 import ProfileMenu from "./ProfileMenu";
-
+import Image from "next/image";
 
 const CustomLink = ({ href, title, className = "" }) => {
     return (
@@ -22,13 +22,16 @@ const NavigationBar = async () => {
     return (
         <div className=" w-full flex justify-around h-24 items-center bg-myBackground bg-opacity-30 border-b-[1px] border-myAccent/20 ">
             <div>
-                <h1 className="font-bold text-xl text-white"><Link href='/'>Bhai Bot</Link></h1>
+                <div>
+                    <Image src='/Note-i.png' height={70} width={90} className=""/>
+                </div>
             </div>
-            <div className='flex justify-between w-[450px]'>
-                <CustomLink href="/services" title='Home' />
-                <CustomLink href="/pricing" title='How we work' />
-                <CustomLink href="/about" title='About Us' />
+            <div className='flex justify-between w-[550px]'>
+                <CustomLink href="/" title='Home' />
+                <CustomLink href="/" title='How we work' />
+                <CustomLink href="/" title='About Us' />
                 <CustomLink href="/try" title='Try The Bot' />
+                <CustomLink href="/chat" title='Chat with Bot' />
                 {/* <CustomLink href="/dashboard" title='Dashboard' />  */}
             </div>
             <div className="relative">
