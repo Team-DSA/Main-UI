@@ -18,7 +18,8 @@ app.use(cors());
 app.use(bodyParser.json());
 dotenv.config();
 
-const apiKey = 'AIzaSyCYVzxjMCXmoJLddnCqphWgr27k2Md7i34';
+// const apiKey = 'AIzaSyCYVzxjMCXmoJLddnCqphWgr27k2Md7i34';
+const apiKey = process.env.API_KEY;
 if (!apiKey) {
   logger("API_KEY is not set");
   process.exit(1);
